@@ -1,4 +1,6 @@
 🌱 VerdantPilot AI  
+
+
 🚀 Smart Farming Powered by AI & Machine Learning  
 
 > Transforming agriculture with data-driven crop intelligence 🌾  
