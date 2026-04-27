@@ -1,9 +1,9 @@
-<<<<<<< HEAD
-# VerdantPilot AI
+
+VerdantPilot AI
 
 VerdantPilot AI is a Django-based smart farming dashboard for crop intelligence. It combines a Random Forest crop classifier with live weather, fertilizer guidance, soil health scoring, a yield-potential regressor, a farmer assistant, bilingual UI support, and a crop disease upload placeholder.
 
-## What is included
+ What is included
 
 - Startup-style agriculture dashboard with responsive cards, layered visuals, and Chart.js charts
 - Top 3 crop recommendations with confidence scores
@@ -16,7 +16,7 @@ VerdantPilot AI is a Django-based smart farming dashboard for crop intelligence.
 - Optional crop image upload with a CNN placeholder disease scan
 - Weather fallback profile so prediction still works if live weather is unavailable
 
-## Project structure
+Project structure
 
 - `recommendation/views.py`: Django page and API views
 - `recommendation/services/`: modular service layer for prediction, agronomy, weather, localization, assistant, and disease scan logic
