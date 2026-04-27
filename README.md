@@ -60,28 +60,31 @@ Project structure
 Use this structure in your paper and project report for publishable clarity:
 
 - **System architecture diagram**: show UI layer (dashboard, charts, assistant), API layer (`/api/predict`, `/api/weather`, `/api/assistant`, `/api/disease`), service layer (`prediction`, `weather`, `agronomy`), and model artifacts (`crop_model.pkl`, `yield_model.pkl`, `model_metrics.json`).
-- **DFD Level 0**: Farmer -> Smart Farming System -> Recommendation/Insights.
-- **DFD Level 1**:
+  
+- **DFD Level 0**:
+  
+-  Farmer -> Smart Farming System -> Recommendation/Insights.
+  
+  **DFD Level 1**:
+  
   1) Input + location intake
   2) Weather retrieval (live/fallback/manual override)
   3) Feature engineering and alignment
   4) Classification (`predict_proba`, top-3 ranking)
   5) Soil/fertilizer/yield post-processing
   6) Dashboard + assistant response generation
-- **Training pipeline**:
+    
+   **Training pipeline**:
   - Data cleaning and null filtering
   - One-hot encoding for `soil_type`
   - Stratified split
   - Random Forest training
   - Evaluation logging to `model_metrics.json`
   - Artifact persistence for consistent inference
-- **Evaluation metrics**:
+
+ **Evaluation metrics**:
   - Accuracy
   - Macro/weighted precision
   - Macro/weighted recall
   - Macro/weighted F1
   These are generated in training and consumed in prediction responses.
-=======
-# VerdantPilot-AI
-AI-powered smart farming dashboard using Django and Machine Learning for crop recommendation, soil analysis, weather integration, and yield prediction.
->>>>>>> 17a47b0761182573ed805d71b5cd288a99537fc3
