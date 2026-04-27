@@ -1,122 +1,87 @@
-🌱 VerdantPilot AI  
+<<<<<<< HEAD
+# VerdantPilot AI
 
+VerdantPilot AI is a Django-based smart farming dashboard for crop intelligence. It combines a Random Forest crop classifier with live weather, fertilizer guidance, soil health scoring, a yield-potential regressor, a farmer assistant, bilingual UI support, and a crop disease upload placeholder.
 
-🚀 Smart Farming Powered by AI & Machine Learning  
+## What is included
 
-> Transforming agriculture with data-driven crop intelligence 🌾  
+- Startup-style agriculture dashboard with responsive cards, layered visuals, and Chart.js charts
+- Top 3 crop recommendations with confidence scores
+- Soil health analysis with nutrient warnings
+- Fertilizer recommendation logic based on N, P, K, and pH
+- Auto weather sync from city search or browser geolocation
+- English and Kannada UI support
+- Rule-based farmer assistant endpoint
+- Yield potential forecast using a regression model
+- Optional crop image upload with a CNN placeholder disease scan
+- Weather fallback profile so prediction still works if live weather is unavailable
 
-🌟 Overview  
+## Project structure
 
-VerdantPilot AI is an intelligent farming assistant that helps farmers and researchers **predict the best crop** based on soil and environmental conditions using Machine Learning.
+- `recommendation/views.py`: Django page and API views
+- `recommendation/services/`: modular service layer for prediction, agronomy, weather, localization, assistant, and disease scan logic
+- `templates/index.html`: dashboard UI
+- `static/style.css`: responsive product styling
+- `static/script.js`: frontend interactions, translation, charts, assistant, upload flow
+- `train_model.py`: trains and saves both crop and yield models
 
-It combines:
-- 🌾 Crop Recommendation AI  
-- 🌦 Weather-aware insights  
-- 🧪 Soil analysis  
-- 📊 Smart dashboard UI  
+## Setup
 
-🧠 How It Works  
+1. Install dependencies:
 
-1. User inputs:
-   - Nitrogen (N)
-   - Phosphorus (P)
-   - Potassium (K)
-   - Temperature 🌡
-   - Humidity 💧
-   - pH ⚗
-   - Rainfall 🌧  
+   ```powershell
+   pip install -r requirements.txt
+   ```
 
-2. System processes input using ML model  
+2. Train the models:
 
-3. 🎯 Outputs best crop recommendation  
+   ```powershell
+   python train_model.py
+   ```
 
+3. Run the Django app:
 
-⚙️ Tech Stack  
+   ```powershell
+   python manage.py runserver
+   ```
 
-🔧 Backend
-- Python 🐍  
-- Django 🌐 :contentReference[oaicite:1]{index=1}  
-- Scikit-learn  
+4. Open `http://127.0.0.1:8000/`
 
-🎨 Frontend
-- HTML  
-- CSS (Glass UI ✨)  
-- JavaScript (API calls) :contentReference[oaicite:2]{index=2}  
+## Notes
 
-📊 Machine Learning
-- Random Forest Classifier 🌲  
-- Dataset-driven training  
+- The crop recommender uses the saved crop classification model in `crop_model.pkl`.
+- The yield forecast uses `yield_model.pkl`. If that file is missing, the app can still build a surrogate regressor in memory.
+- Weather is requested from Open-Meteo. If live lookup fails, the backend falls back to dataset-derived climate medians so the experience still works.
+- The disease upload flow is a placeholder designed to be swapped with a real CNN model later.
+- `app.py` still works as a convenience launcher.
 
+## Research Paper Alignment
 
-🧩 Features  
+Use this structure in your paper and project report for publishable clarity:
 
-✨ Clean and modern UI  
-✨ Real-time prediction  
-✨ ML-based crop suggestion  
-✨ Easy input system  
-✨ Fast API response  
-
-📦 VerdantPilot-AI
-┣ 📂 templates
-┣ 📂 static
-┣ 📂 recommendation
-┣ 📜 train_model.py
-┣ 📜 manage.py
-┣ 📜 requirements.txt
-┗ 📜 model_metrics.json
-
-
-⚡ Installation & Setup  
-
-1️⃣ Clone Repository
-git clone https://github.com/himagirisiddesh/verdantpilot-ai.git
-cd verdantpilot-ai
-2️⃣ Install Dependencies
-pip install -r requirements.txt
-3️⃣ Train Model
-python train_model.py
-4️⃣ Run Server
-python manage.py runserver
-5️⃣ Open Browser
-http://127.0.0.1:8000/
-🎯 API Example
-POST /predict
-
-{
-  "N": 90,
-  "P": 40,
-  "K": 40,
-  "temp": 25,
-  "humidity": 60,
-  "ph": 6.5,
-  "rainfall": 100
-}
-🧪 Future Improvements
-
-🚀 Improve model accuracy
-🚀 Add real-time weather API
-🚀 Mobile app integration
-🚀 Crop disease detection (CNN)
-🚀 Multilingual support
-
-🤝 Contribution
-
-Contributions are welcome!
-Feel free to fork, improve, and submit PRs.
-
-📜 License
-
-MIT License
-
-💡 Author
-
-Himagiri Siddesh
-🎓 AI & ML Enthusiast | Developer
-
-⭐ Show Your Support
-
-If you like this project:
-👉 Star ⭐ the repo
-👉 Share with others
- 
-
+- **System architecture diagram**: show UI layer (dashboard, charts, assistant), API layer (`/api/predict`, `/api/weather`, `/api/assistant`, `/api/disease`), service layer (`prediction`, `weather`, `agronomy`), and model artifacts (`crop_model.pkl`, `yield_model.pkl`, `model_metrics.json`).
+- **DFD Level 0**: Farmer -> Smart Farming System -> Recommendation/Insights.
+- **DFD Level 1**:
+  1) Input + location intake
+  2) Weather retrieval (live/fallback/manual override)
+  3) Feature engineering and alignment
+  4) Classification (`predict_proba`, top-3 ranking)
+  5) Soil/fertilizer/yield post-processing
+  6) Dashboard + assistant response generation
+- **Training pipeline**:
+  - Data cleaning and null filtering
+  - One-hot encoding for `soil_type`
+  - Stratified split
+  - Random Forest training
+  - Evaluation logging to `model_metrics.json`
+  - Artifact persistence for consistent inference
+- **Evaluation metrics**:
+  - Accuracy
+  - Macro/weighted precision
+  - Macro/weighted recall
+  - Macro/weighted F1
+  These are generated in training and consumed in prediction responses.
+=======
+# VerdantPilot-AI
+AI-powered smart farming dashboard using Django and Machine Learning for crop recommendation, soil analysis, weather integration, and yield prediction.
+>>>>>>> 17a47b0761182573ed805d71b5cd288a99537fc3

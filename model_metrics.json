@@ -1,0 +1,12 @@
+{
+  "accuracy": 0.336,
+  "macro_precision": 0.330828,
+  "macro_recall": 0.336787,
+  "macro_f1": 0.320642,
+  "weighted_precision": 0.330721,
+  "weighted_recall": 0.336,
+  "weighted_f1": 0.320211,
+  "training_rows": 5000,
+  "feature_count": 11,
+  "model": "RandomForestClassifier"
+}
